@@ -19,5 +19,7 @@ RUN  \
   apt-get install -y vim wget curl maven && \
   update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
+RUN apt-get install -y make
+
 # run terminal
 CMD ["/bin/bash"]
