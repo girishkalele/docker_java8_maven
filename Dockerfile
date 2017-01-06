@@ -16,14 +16,8 @@ RUN  \
   sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y vim wget curl git maven
-
-# attach volumes
-VOLUME /volume/git
-
-# create working directory
-RUN mkdir -p /local/git
-WORKDIR /local/git
+  apt-get install -y vim wget curl maven && \
+  update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
 # run terminal
 CMD ["/bin/bash"]
