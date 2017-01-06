@@ -5,7 +5,7 @@
 #
 
 # pull base image.
-FROM java:8
+FROM sdorra/oracle-java-8
 
 # maintainer details
 MAINTAINER James Bloom "jamesdbloom@gmail.com"
@@ -15,11 +15,7 @@ RUN  \
   export DEBIAN_FRONTEND=noninteractive && \
   sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y vim wget curl maven && \
-  update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
-
-RUN apt-get install -y make
+  apt-get install -y vim wget curl maven make
 
 # run terminal
 CMD ["/bin/bash"]
